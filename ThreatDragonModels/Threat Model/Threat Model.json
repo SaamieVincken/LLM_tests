@@ -33,8 +33,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "48d0694f-c559-45a8-be39-52fda5997af7",
             "zIndex": -1,
+            "id": "48d0694f-c559-45a8-be39-52fda5997af7",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Internal network",
@@ -184,6 +184,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -267,7 +268,6 @@
               ]
             },
             "id": "7485cdc4-4f02-44c7-b66b-2bd75a81e9fb",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "TikTok",
@@ -300,6 +300,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -383,7 +384,6 @@
               ]
             },
             "id": "f2067612-7d58-4c3b-beda-c14f28fcf89e",
-            "zIndex": 3,
             "data": {
               "type": "tm.Actor",
               "name": "AppUser",
@@ -416,6 +416,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -499,7 +500,6 @@
               ]
             },
             "id": "0333952b-6f74-471d-9709-e2ef20edf7de",
-            "zIndex": 4,
             "data": {
               "type": "tm.Actor",
               "name": "Intelligence department",
