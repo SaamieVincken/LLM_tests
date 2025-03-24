@@ -2,8 +2,8 @@
   "version": "2.4.1",
   "summary": {
     "title": "Threat Model",
-    "owner": "",
-    "description": "",
+    "owner": "Saamie Vincken",
+    "description": "MeldMonitor is a law enforcement platform that helps police officers manage direct messages (DMs) received through their TikTok business accounts. Officers use a mobile app (built with Ionic/TypeScript) to log in to TikTok via an integration layer called DataDrip, which retrieves DMs and forwards them to MeldMonitor’s API Application for parsing and categorization.\n\nThe system’s Message Categorizer (Python-based ML service) analyzes incoming messages, labeling them by priority or risk. Urgent or high-severity messages are automatically escalated to the Intelligence Department for further action. Parsed message data is stored in a MariaDB database accessed through an ASP.NET Core API layer.\n\nKey stakeholders include:\n    - AppUser (Police Officer) – Primary user who manages TikTok messages.\n    - Intelligence Department – Receives emergency tickets or high-priority alerts.\n    - External TikTok Users – Public individuals who send DMs to the officer’s TikTok account.\n    - Developers & Administrators – Maintain the system, oversee integrations, and ensure security.\n\nBy centralizing TikTok DMs in one secure interface, MeldMonitor reduces the manual workload of monitoring, reporting, and escalating time-sensitive messages. The overall goal is to improve public safety response times while protecting sensitive data under strict security and privacy policies.",
     "id": 0
   },
   "detail": {
@@ -11,7 +11,7 @@
     "diagrams": [
       {
         "id": 2,
-        "title": "STRIDE Level 1 diagram",
+        "title": "Level 1 diagram",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -646,11 +646,12 @@
             },
             "vertices": []
           }
-        ]
+        ],
+        "description": "This high-level view shows how external entities (the TikTok Platform, AppUser, and Intelligence Department) interact with MeldMonitor as a single system boundary. It highlights the primary data flows into and out of MeldMonitor without detailing internal components."
       },
       {
         "id": 3,
-        "title": "STRIDE Level 2 diagram",
+        "title": "Level 2 diagram",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -2830,7 +2831,8 @@
             },
             "vertices": []
           }
-        ]
+        ],
+        "description": "This expanded diagram decomposes MeldMonitor into its core internal components—Mobile App, API Application, DataDrip, Message Categorizer, and Database. Each data flow (F1, F2, etc.) is labeled to illustrate the pathways for user input, TikTok data retrieval, message categorization, and final alerts to the Intelligence Department."
       }
     ],
     "diagramTop": 4,
