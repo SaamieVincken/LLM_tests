@@ -876,8 +876,8 @@
                 "text": "API Application\n[ASP.NET Core]"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -973,12 +973,86 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d9514e1b-4153-408b-bdb0-6f843fc6755a",
+                  "title": "S-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "The API reuses a shared DB credential that an attacker or insider can steal, posing as the API.",
+                  "mitigation": "Use unique credentials per service, IP whitelisting, rotate DB passwords or use secrets manager.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "8"
+                },
+                {
+                  "id": "cc34a41c-9e3c-4fa1-98be-32d62771c61e",
+                  "title": "T-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Malicious SQL injection or parameter tampering modifies queries from the API to the DB, leading to corrupted data.",
+                  "mitigation": "Parameterize all queries, use an ORM that sanitizes inputs, implement strict DB privileges.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "9"
+                },
+                {
+                  "id": "7c158549-9b1f-4bb0-ae9a-b8e61facae89",
+                  "title": "I-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Query results returning raw DM or user data could be logged in plain text or remain visible to unauthorized processes.",
+                  "mitigation": "Mask sensitive fields in logs, encrypt data at rest, limit SELECT permissions to necessary columns.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "8"
+                },
+                {
+                  "id": "d3a4156e-c0b9-4bb4-ac94-f84188c383ce",
+                  "title": "D-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Flooding the DB with complex queries or large data sets can degrade performance or cause timeouts.",
+                  "mitigation": "Use query time limits, implement caching, set concurrency caps, monitor for abnormal query patterns.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": "7"
+                },
+                {
+                  "id": "7383aa61-8464-41b4-b1ba-bc5466d510ab",
+                  "title": "E-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "The API uses DB credentials with admin rights, letting it create/destroy tables or escalate beyond normal CRUD.",
+                  "mitigation": "Adopt least-privilege DB accounts, separate read/write roles, regularly audit DB user privileges.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -2173,7 +2247,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2193,12 +2268,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "442fa720-e244-4099-8601-9fd45ca36f3d",
+                  "title": "T-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Malicious SQL injection or parameter tampering modifies queries from the API to the DB, leading to corrupted data.",
+                  "mitigation": "Parameterize all queries, use an ORM that sanitizes inputs, implement strict DB privileges.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "9"
+                },
+                {
+                  "id": "7846bd3b-147c-4969-8539-d58ace4211c2",
+                  "title": "I-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Query results returning raw DM or user data could be logged in plain text or remain visible to unauthorized processes.",
+                  "mitigation": "Mask sensitive fields in logs, encrypt data at rest, limit SELECT permissions to necessary columns.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "8"
+                },
+                {
+                  "id": "cd188930-859e-4162-8044-71ce5eafc564",
+                  "title": "D-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Flooding the DB with complex queries or large data sets can degrade performance or cause timeouts.",
+                  "mitigation": "Use query time limits, implement caching, set concurrency caps, monitor for abnormal query patterns.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F3: SQL Queries / EF calls"
@@ -2219,6 +2339,6 @@
     ],
     "diagramTop": 4,
     "reviewer": "",
-    "threatTop": 18
+    "threatTop": 26
   }
 }
