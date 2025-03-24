@@ -647,7 +647,7 @@
             "vertices": []
           }
         ],
-        "description": "This high-level view shows how external entities (the TikTok Platform, AppUser, and Intelligence Department) interact with MeldMonitor as a single system boundary. It highlights the primary data flows into and out of MeldMonitor without detailing internal components."
+        "description": "This high-level view shows how external entities (the TikTok Platform, AppUser, and Intelligence Department) interact with MeldMonitor as a single system boundary. It highlights the primary data flows into and out of MeldMonitor without detailing internal components. MeldMonitor: A central system for managing police messages. It retrieves direct messages from TikTok, categorizes them by urgency, and forwards serious incidents to the Intelligence Department.  AppUser (Officer): The police officer who holds a TikTok business account and uses MeldMonitor to review, manage, and potentially escalate incoming messages.  TikTok Platform: An external social media service through which the general public sends direct messages to the officer’s business account.  Intelligence Department: A specialized law enforcement unit that receives high-priority or emergency alerts from MeldMonitor for further investigation and action."
       },
       {
         "id": 3,
