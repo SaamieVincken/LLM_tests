@@ -1069,8 +1069,8 @@
                 "text": "DataDrip\n(TikTok Integration)"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1166,12 +1166,99 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "14cb8984-9e9b-4a92-925e-1239a67d7cbc",
+                  "title": "S-F4",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "A service mimics the API or spoofs an internal token, calling DataDrip to retrieve unauthorized TikTok data.",
+                  "mitigation": "Require mutual TLS or signed requests between API and DataDrip, verify internal network addresses.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": "8"
+                },
+                {
+                  "id": "a9fc3413-d944-49e5-923e-1337cfc02ec4",
+                  "title": "T-F4",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "The parameters (user IDs or access tokens) sent to DataDrip are altered en route, leading to retrieval of other users’ data.",
+                  "mitigation": "Enforce TLS, implement request signing, validate user/tokens in DataDrip.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": "8"
+                },
+                {
+                  "id": "c04aa473-1c9f-4ed0-959f-3c27ffc6f800",
+                  "title": "R-F4",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The API denies sending certain requests to DataDrip if no call logs or transaction IDs exist.",
+                  "mitigation": "Store request/response logs with timestamps, keep correlation IDs in both systems.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": "6"
+                },
+                {
+                  "id": "708b7048-490f-4a24-945b-938dbf72b0ae",
+                  "title": "I-F4",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "DataDrip logs or processes might store TikTok tokens in plain text, exposing them if logs are compromised.",
+                  "mitigation": "Mask tokens in logs, store only hashed references, restrict who can view DataDrip’s logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": "8"
+                },
+                {
+                  "id": "63afe3e7-aa5d-4ed1-9374-75bc79c2bdd0",
+                  "title": "D-F4",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "The API repeatedly calls DataDrip with huge or frequent requests, causing it to hit resource limits or crash.",
+                  "mitigation": "Apply usage quotas for the API, add request throttling in DataDrip, monitor for unusual traffic spikes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": "7"
+                },
+                {
+                  "id": "5c0f5a05-54a8-4240-8bab-80b32d0b8937",
+                  "title": "E-F4",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "DataDrip might allow the API to use privileged scopes that can read or alter more data than intended.",
+                  "mitigation": "Implement scope-limited tokens, enforce principle of least privilege in DataDrip configurations.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1188,8 +1275,8 @@
                 "text": "Message \nCategorizer\n[Python]"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1285,12 +1372,99 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9ab71e95-6bfa-4ab6-a18c-023b02ab0f78",
+                  "title": "S-F6",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An unauthorized process claims to be the API, sending requests to the categorizer directly.",
+                  "mitigation": "Implement internal authentication (API keys or mutual TLS) for any calls to the categorizer.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": "8"
+                },
+                {
+                  "id": "30e8e728-ca0f-4bcb-a715-7b3eb8c9a472",
+                  "title": "T-F6",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "The data about DMs is manipulated, skewing classification results or injecting malicious payloads into the AI.",
+                  "mitigation": "Validate and sanitize input before passing to the categorizer, log anomalies.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": "8"
+                },
+                {
+                  "id": "0bdeb3f1-d1b0-4602-b82d-150a35e4633c",
+                  "title": "R-F6",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The API denies sending certain data for classification if no correlation or request ID is recorded.",
+                  "mitigation": "Log all classification requests with unique IDs, timestamps, and the requesting user context.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 46,
+                  "score": "6"
+                },
+                {
+                  "id": "5e045a42-7770-4b08-9d9c-d857cf43f16f",
+                  "title": "I-F6",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Raw DM content is passed in plain text to the categorizer or ends up in debug logs.",
+                  "mitigation": "Mask or hash sensitive content, restrict log access.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 47,
+                  "score": "8"
+                },
+                {
+                  "id": "b6f50d8f-0813-49cd-bcec-edd02d56eaca",
+                  "title": "D-F6",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Large or fast requests to the ML service overload the categorizer, causing crashes.",
+                  "mitigation": "Implement concurrency limits, queue requests, monitor resource usage (CPU/RAM).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 48,
+                  "score": "7"
+                },
+                {
+                  "id": "e6be0045-b8ec-49d6-a193-ccea3657daf0",
+                  "title": "E-F6",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "The categorizer runs under elevated OS or container permissions that the API exploits to gain system-level access.",
+                  "mitigation": "Run the categorizer in a access-control environment, enforce sandboxing.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 49,
+                  "score": "6"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1307,11 +1481,13 @@
                 "text": "Database\n[MariaDB]"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1407,13 +1583,59 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "9beeafaa-c4a8-4bca-b950-4cbcb56a7609",
+                  "title": "R-F3",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Developer or admin denies deleting/updating records in the DB if there are no audit logs.",
+                  "mitigation": "Configure DB-level audit logs, store transaction logs with user context from the API.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": "6"
+                },
+                {
+                  "id": "6659d1c0-2b43-4f30-a1cb-ca19f7fa9a05",
+                  "title": "D-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Flooding the DB with complex queries or large data sets can degrade performance or cause timeouts.",
+                  "mitigation": "Use query time limits, implement caching, set concurrency caps, monitor for abnormal query patterns.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": "7"
+                },
+                {
+                  "id": "7d6311a7-2691-4ccb-8db9-3f93604e933d",
+                  "title": "E-F3",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "The API uses DB credentials with admin rights, letting it create/destroy tables or escalate beyond normal CRUD.",
+                  "mitigation": "Adopt least-privilege DB accounts, separate read/write roles, regularly audit DB user privileges.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 2,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1430,8 +1652,8 @@
                 "text": "TikTok\n(External)"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1527,9 +1749,40 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "01403e30-8535-4134-8cbd-97b0e90b267c",
+                  "title": "S-F5",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A fake or compromised endpoint pretends to be TikTok’s API (DNS hijack), intercepting DataDrip calls.",
+                  "mitigation": "Validate domain with certificate pinning, DNSSEC, track pinned IP addresses if possible.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": "6"
+                },
+                {
+                  "id": "73d02cf8-1b81-4074-b447-5db352bd0e71",
+                  "title": "R-F5",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "TikTok or DataDrip denies certain requests or partial DM retrieval if logs are incomplete.",
+                  "mitigation": "Keep call logs with request IDs, store timestamps on both ends, align them with known user sessions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -1693,8 +1946,8 @@
                 "text": "Intelligence\ndepartment\n(External)"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1790,16 +2043,48 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "5dce4a01-bd65-4ad5-9045-9d7958712307",
+                  "title": "S-F8",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A service or attacker acts as the legitimate API, sending fake alerts to the Intelligence Department.",
+                  "mitigation": "Use mutual TLS or secure tokens to verify the API’s identity, sign all forwarded alerts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 60,
+                  "score": "6"
+                },
+                {
+                  "id": "7fe0ca88-8b6f-466a-8524-fc24178e07f8",
+                  "title": "R-F8",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "The Intelligence Department claims it never received certain alerts, or the API denies sending them, if no proof of delivery.",
+                  "mitigation": "Use request/response acknowledgments, maintain logs on both sides with unique ticket IDs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 61,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1819,12 +2104,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "115f2d23-b34b-435b-b1c3-ffafd926d1ce",
+                  "title": "T-F5",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Man-in-the-middle modifies data in transit to or from TikTok if TLS is broken or certificates are invalid.",
+                  "mitigation": "TLS enforcement, certificate transparency checks, monitor for certificate anomalies.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": "8"
+                },
+                {
+                  "id": "1c09b6aa-1a0c-4851-9ced-baea5ea2687c",
+                  "title": "I-F5",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "DataDrip requests overly broad scopes from TikTok, exposing additional user data or profile details.",
+                  "mitigation": "Use minimal OAuth scopes, regularly audit which data is actually needed.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": "8"
+                },
+                {
+                  "id": "fdf56862-99a4-4e16-aa67-3a9f4a1b4777",
+                  "title": "D-F5",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "TikTok rate-limits or blocks DataDrip if it floods the API with excessive requests, halting DM retrieval.",
+                  "mitigation": "Request scheduling, observe TikTok’s usage limit.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F5: TikTok API calls"
@@ -1844,7 +2174,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1864,12 +2195,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "a5db36ee-2af3-462d-9e49-d25855d8f6d0",
+                  "title": "T-F6",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "The data about DMs is manipulated, skewing classification results or injecting malicious payloads into the AI.",
+                  "mitigation": "Validate and sanitize input before passing to the categorizer, log anomalies.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 50,
+                  "score": "8"
+                },
+                {
+                  "id": "a8e076a9-09a0-4854-8159-c328f802c3ca",
+                  "title": "I-F6",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Raw DM content is passed in plain text to the categorizer or ends up in debug logs.",
+                  "mitigation": "Mask or hash sensitive content, restrict log access.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 51,
+                  "score": "8"
+                },
+                {
+                  "id": "ffa5af05-5136-4b77-b250-deedb804e749",
+                  "title": "D-F6",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Large or fast requests to the ML service overburden the categorizer, causing slowdowns or crashes.",
+                  "mitigation": "Implement limits, queue requests, monitor resource usage (CPU/RAM).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 52,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F6: Data for categorization"
@@ -1887,6 +2263,10 @@
               {
                 "x": 260,
                 "y": 450
+              },
+              {
+                "x": 230,
+                "y": 450
               }
             ]
           },
@@ -1894,7 +2274,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1914,12 +2295,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "e9f45048-09fd-41fb-95ca-5e17f477e062",
+                  "title": "T-F7",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Classification output is modified in transit, potentially causing the API to record incorrect severity or incident data.",
+                  "mitigation": "Sign classification results, use TLS, or store ephemeral references that can’t be altered externally.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 54,
+                  "score": "8"
+                },
+                {
+                  "id": "3b0ba896-b012-4ce3-b24a-65dcd0644d2a",
+                  "title": "I-F7",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "The categorizer’s output might include extra data about the messages or user, exposing it in the API logs.",
+                  "mitigation": "Return only necessary classification labels, mask raw content or user data.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 55,
+                  "score": "8"
+                },
+                {
+                  "id": "47b65524-7c7a-4a2e-aa29-b4dc8fcb6373",
+                  "title": "D-F7",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "If the categorizer overloads the API with repeated or malformed responses, the API could crash.",
+                  "mitigation": "Validate inbound data from the categorizer, limit request frequency, set timeouts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 56,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F7: Categorization results"
@@ -1934,6 +2360,10 @@
               "port": "36552dd0-249a-4507-8bea-5bd342a20dcf"
             },
             "vertices": [
+              {
+                "x": 240,
+                "y": 510
+              },
               {
                 "x": 250,
                 "y": 510
@@ -2035,7 +2465,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2055,12 +2486,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9cb4631f-39fa-44c3-9c11-9892a5acc542",
+                  "title": "T-F8",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "The forwarded tickets or reports are altered in transit.",
+                  "mitigation": "Sign the data, enforce TLS, store a hash of the ticket content for verification.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 57,
+                  "score": "8"
+                },
+                {
+                  "id": "ab001f72-ee8d-4c81-bd9c-05b10f1c27c5",
+                  "title": "I-F8",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Detailed incident data (or personal info) might be over-shared with the Intelligence Department if encryption or filtering is missing.",
+                  "mitigation": "Provide only the relevant fields in the alert, encrypt sensitive fields, apply role-based access for intelligence officers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 58,
+                  "score": "8"
+                },
+                {
+                  "id": "a4b5f2af-bcf5-40ad-9edf-d9cebbf3d909",
+                  "title": "D-F8",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "The API repeatedly overloads the Intelligence Department’s system with excessive or malformed tickets, disrupting normal triage.",
+                  "mitigation": "Rate-limit the forwarding process, require department-side acknowledgment before sending more.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 59,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F8: Forward Alerts / Tickets"
@@ -2080,7 +2556,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2100,12 +2577,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "eb268655-5601-482b-9ae7-cac137f6a48a",
+                  "title": "T-F4",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "The parameters (user IDs or access tokens) sent to DataDrip are altered en route, leading to retrieval of other users’ data.",
+                  "mitigation": "Enforce TLS, implement request signing, validate user/tokens in DataDrip.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": "8"
+                },
+                {
+                  "id": "920b84ba-68a5-4329-9829-a7fc81028901",
+                  "title": "I-F4",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "DataDrip logs or processes might store TikTok tokens in plain text, exposing them if logs are compromised.",
+                  "mitigation": "Mask tokens in logs, store only hashed references, restrict who can view DataDrip’s logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": "8"
+                },
+                {
+                  "id": "070eacff-7891-458c-b868-65ff6183806b",
+                  "title": "D-F4",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "The API repeatedly calls DataDrip with huge or frequent requests, causing it to hit resource limits or crash.",
+                  "mitigation": "Apply usage quotas for the API, add request throttling in DataDrip, monitor for unusual traffic spikes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F4: Retrieve TikTok DMs"
@@ -2158,45 +2680,6 @@
               "protocol": "",
               "threats": [
                 {
-                  "id": "02ee6810-95a7-49dc-88cd-ae00fddf61d8",
-                  "title": "S-F2",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Denial of service",
-                  "description": "Attacker forges or steals the mobile app’s credentials/token to call the API as if from the real app",
-                  "mitigation": "Use short-lived OAuth/JWT tokens, validate device or app signatures, monitor for token reuse",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 12,
-                  "score": "8"
-                },
-                {
-                  "id": "ab72b5e8-ecf1-4c3b-b642-b1ed391219f3",
-                  "title": "T-F2",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Information disclosure",
-                  "description": "The JSON payload and/or route to the API is altered, inserting malicious parameters or removing crucial fields",
-                  "mitigation": "Enforce TLS 1.2 or higher, use request signing/HMAC or schema validation on the API side.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 13,
-                  "score": "8"
-                },
-                {
-                  "id": "73ad213d-5b10-4b50-bfb0-09f718e7ec3b",
-                  "title": "R-F2",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "An officer denies making certain API calls; the system lacks logs or correlation IDs to prove otherwise.",
-                  "mitigation": "Implement server-side logging with user ID/time stamps for each request, store minimal but sufficient evidence.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 14,
-                  "score": "6"
-                },
-                {
                   "id": "66cd5680-4935-4110-89f7-a908e8aa8517",
                   "title": "I-F2",
                   "status": "Open",
@@ -2221,12 +2704,25 @@
                   "new": false,
                   "number": 16,
                   "score": "7"
+                },
+                {
+                  "id": "a754b248-839c-4159-b281-dfce7b7c7651",
+                  "title": "T-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "The JSON payload en route to the API is altered, inserting malicious parameters or removing crucial fields.",
+                  "mitigation": "Enforce TLS 1.2 or higher, use request signing/HMAC or schema validation on the API side.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 53,
+                  "score": "8"
                 }
               ],
               "threatFrequency": {
-                "tampering": 0,
+                "tampering": 1,
                 "informationDisclosure": 2,
-                "denialOfService": 3
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2339,6 +2835,6 @@
     ],
     "diagramTop": 4,
     "reviewer": "",
-    "threatTop": 26
+    "threatTop": 61
   }
 }
