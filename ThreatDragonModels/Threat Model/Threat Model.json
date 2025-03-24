@@ -672,8 +672,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "98c49b57-c510-4deb-9310-1cef77b85184",
             "zIndex": -1,
+            "id": "98c49b57-c510-4deb-9310-1cef77b85184",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "MeldMonitor Internal Network",
@@ -696,13 +696,14 @@
                 "text": "Mobile App \n[Ionic/Typescript]"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -786,19 +787,79 @@
               ]
             },
             "id": "fa93b87b-1347-44f4-80b0-9e5b8f080a97",
-            "zIndex": 1,
             "data": {
               "type": "tm.Process",
               "name": "Mobile App \n[Ionic/Typescript]",
               "description": "Ionic/Typescript",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "b2962ea0-9b61-4ae7-b706-262d45af5415",
+                  "title": "S-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attacker forges or steals the mobile app’s credentials/token to call the API as if from the real app",
+                  "mitigation": "Use short-lived OAuth/JWT tokens, validate device or app signatures, monitor for token reuse",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "8"
+                },
+                {
+                  "id": "5d832915-afc7-4f84-a07c-4f1d43497a52",
+                  "title": "R-F2",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "An officer denies making certain API calls; the system lacks logs or correlation IDs to prove otherwise.",
+                  "mitigation": "Implement server-side logging with user ID/time stamps for each request, store minimal but sufficient evidence.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "6"
+                },
+                {
+                  "id": "0a7b9b67-c58a-4171-9141-35e577146a99",
+                  "title": "I-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive data (like personal details or DM content) is readable if the connection is leaked or logs are stored plain text.",
+                  "mitigation": "Encrypt all data in transit (HTTPS), sanitize logs, use partial or tokenized data fields.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "8"
+                },
+                {
+                  "id": "86d8edee-1bc8-44ee-8c13-a08439197ea6",
+                  "title": "E-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Hidden API endpoints might be discovered by analyzing the app, letting attackers call privileged routes.",
+                  "mitigation": "Restrict access with role-based checks on the API, separate admin endpoints on a different route or domain.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -822,6 +883,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -905,7 +967,6 @@
               ]
             },
             "id": "bcc6924f-50d6-4f9b-afdf-748375a6a8a1",
-            "zIndex": 2,
             "data": {
               "type": "tm.Process",
               "name": "API Application\n[ASP.NET Core]",
@@ -941,6 +1002,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -1024,7 +1086,6 @@
               ]
             },
             "id": "b3856a1b-1d04-41a6-a7a8-91f8dbd22dfa",
-            "zIndex": 3,
             "data": {
               "type": "tm.Process",
               "name": "DataDrip\n(TikTok Integration)",
@@ -1060,6 +1121,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -1143,7 +1205,6 @@
               ]
             },
             "id": "954f6749-4da3-4e38-9425-2bd6cf205b70",
-            "zIndex": 4,
             "data": {
               "type": "tm.Process",
               "name": "Message \nCategorizer\n[Python]",
@@ -1182,6 +1243,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -1265,7 +1327,6 @@
               ]
             },
             "id": "2702df3d-9c15-4fed-b1bf-42201033ec5d",
-            "zIndex": 5,
             "data": {
               "type": "tm.Store",
               "name": "Database\n[MariaDB]",
@@ -1302,6 +1363,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -1385,7 +1447,6 @@
               ]
             },
             "id": "66f54085-530f-443a-8188-e0d9ea0f8e74",
-            "zIndex": 6,
             "data": {
               "type": "tm.Actor",
               "name": "TikTok\n(External)",
@@ -1418,6 +1479,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -1501,7 +1563,6 @@
               ]
             },
             "id": "8b6f187f-2827-41e4-98db-1c2ef97aa6c0",
-            "zIndex": 7,
             "data": {
               "type": "tm.Actor",
               "name": "AppUser\n(Police Officer)",
@@ -1565,6 +1626,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 8,
             "ports": {
               "groups": {
                 "top": {
@@ -1648,7 +1710,6 @@
               ]
             },
             "id": "b66f4a93-8986-43cc-999f-144452c32f7f",
-            "zIndex": 8,
             "data": {
               "type": "tm.Actor",
               "name": "Intelligence\ndepartment\n(External)",
@@ -1659,51 +1720,6 @@
               "providesAuthentication": false,
               "threats": []
             }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "F2: HTTP Request to API",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "F2: HTTP Request to API"
-            ],
-            "id": "48915d17-e1ac-46d6-a8d9-9d82abc2af93",
-            "source": {
-              "cell": "fa93b87b-1347-44f4-80b0-9e5b8f080a97",
-              "port": "8499fafd-62c6-43ed-977c-7b103be7be31"
-            },
-            "target": {
-              "cell": "bcc6924f-50d6-4f9b-afdf-748375a6a8a1",
-              "port": "25d6639b-99d9-4de5-bb32-43447ccc38c8"
-            },
-            "vertices": []
           },
           {
             "shape": "flow",
@@ -1854,7 +1870,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1874,12 +1891,57 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "acf0d213-ff2e-43a8-a215-0f830426c2a1",
+                  "title": "T-F1",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Malicious actor intercepts or modifies the user’s requests (e.g. text input) on an insecure network before they reach the mobile app.",
+                  "mitigation": "Use end-to-end TLS, verify integrity of requests on the mobile side, encourage officers to avoid untrusted Wi-Fi.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "5"
+                },
+                {
+                  "id": "d7dca8ed-c319-4dc5-b460-e08ff32cc607",
+                  "title": "I-F1",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive data (e.g. session tokens, user info) is exposed if the device or initial app handshake is unencrypted or if logs store raw credentials.",
+                  "mitigation": "Enforce HTTPS/TLS on all connections, mask or encrypt logs, use secure storage for tokens.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "8"
+                },
+                {
+                  "id": "9e969a60-58a6-48fd-92bb-f55fffd994d9",
+                  "title": "D-F1",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Repeated malicious requests from a device overload the app, making it unusable.",
+                  "mitigation": "Implement rate limiting at the local app or server, detect abnormal usage patterns, forced logout.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "F1: User Inputs / Requests"
@@ -2034,12 +2096,129 @@
                 "y": 360
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F2: HTTP Request to API",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "02ee6810-95a7-49dc-88cd-ae00fddf61d8",
+                  "title": "S-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Attacker forges or steals the mobile app’s credentials/token to call the API as if from the real app",
+                  "mitigation": "Use short-lived OAuth/JWT tokens, validate device or app signatures, monitor for token reuse",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "8"
+                },
+                {
+                  "id": "ab72b5e8-ecf1-4c3b-b642-b1ed391219f3",
+                  "title": "T-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "The JSON payload and/or route to the API is altered, inserting malicious parameters or removing crucial fields",
+                  "mitigation": "Enforce TLS 1.2 or higher, use request signing/HMAC or schema validation on the API side.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "8"
+                },
+                {
+                  "id": "73ad213d-5b10-4b50-bfb0-09f718e7ec3b",
+                  "title": "R-F2",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "An officer denies making certain API calls; the system lacks logs or correlation IDs to prove otherwise.",
+                  "mitigation": "Implement server-side logging with user ID/time stamps for each request, store minimal but sufficient evidence.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "6"
+                },
+                {
+                  "id": "66cd5680-4935-4110-89f7-a908e8aa8517",
+                  "title": "I-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive data (like personal details or DM content) is readable if the connection is leaked or logs are stored plain text.",
+                  "mitigation": "Encrypt all data in transit (HTTPS), sanitize logs, use partial or tokenized data fields.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "8"
+                },
+                {
+                  "id": "f40b6e90-62e9-4149-8f33-a23b40660399",
+                  "title": "D-F2",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Bot or malware repeatedly sends massive requests from the app side, overwhelming the API’s capacity.",
+                  "mitigation": "Enforce server rate limiting, apply WAF rules, add re-auth or captcha after suspicious volume.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 3
+              }
+            },
+            "labels": [
+              "F2: HTTP Request to API"
+            ],
+            "id": "48915d17-e1ac-46d6-a8d9-9d82abc2af93",
+            "source": {
+              "cell": "fa93b87b-1347-44f4-80b0-9e5b8f080a97",
+              "port": "8499fafd-62c6-43ed-977c-7b103be7be31"
+            },
+            "target": {
+              "cell": "bcc6924f-50d6-4f9b-afdf-748375a6a8a1",
+              "port": "25d6639b-99d9-4de5-bb32-43447ccc38c8"
+            },
+            "vertices": []
           }
         ]
       }
     ],
     "diagramTop": 4,
     "reviewer": "",
-    "threatTop": 3
+    "threatTop": 18
   }
 }
