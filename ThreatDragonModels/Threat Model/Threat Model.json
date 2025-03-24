@@ -532,7 +532,52 @@
             "data": {
               "type": "tm.Flow",
               "name": "Data Flow",
-              "description": "",
+              "description": "If a message is urgent, MeldMonitor forwards it to the Intelligence Department for further action.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "b2ba05d7-fe1d-4524-8d66-2bf735d4b3c7",
+            "source": {
+              "cell": "c5df3399-3406-443a-acee-5773d7dd3f5a",
+              "port": "2150888b-afe2-4133-bd32-e52c7fa361c3"
+            },
+            "target": {
+              "cell": "0333952b-6f74-471d-9709-e2ef20edf7de",
+              "port": "28bdcbed-b28d-4606-a877-1d5a8ba1ba7d"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "The officer logs in and manages incoming TikTok messages through the MeldMonitor system.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -577,7 +622,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Data Flow",
-              "description": "",
+              "description": "TikTok sends direct messages from the public to MeldMonitor so they can be reviewed.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -590,59 +635,14 @@
             "labels": [
               "Data Flow"
             ],
-            "id": "678d220f-488e-4e21-816a-1e81ff4e79d9",
+            "id": "72d286f1-f8fb-450b-9498-207ac74c4b2f",
             "source": {
-              "cell": "c5df3399-3406-443a-acee-5773d7dd3f5a",
-              "port": "2150888b-afe2-4133-bd32-e52c7fa361c3"
-            },
-            "target": {
               "cell": "7485cdc4-4f02-44c7-b66b-2bd75a81e9fb",
               "port": "28bdcbed-b28d-4606-a877-1d5a8ba1ba7d"
             },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "b2ba05d7-fe1d-4524-8d66-2bf735d4b3c7",
-            "source": {
+            "target": {
               "cell": "c5df3399-3406-443a-acee-5773d7dd3f5a",
               "port": "2150888b-afe2-4133-bd32-e52c7fa361c3"
-            },
-            "target": {
-              "cell": "0333952b-6f74-471d-9709-e2ef20edf7de",
-              "port": "28bdcbed-b28d-4606-a877-1d5a8ba1ba7d"
             },
             "vertices": []
           }
