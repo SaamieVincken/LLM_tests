@@ -2832,7 +2832,7 @@
             "vertices": []
           }
         ],
-        "description": "This expanded diagram decomposes MeldMonitor into its core internal components—Mobile App, API Application, DataDrip, Message Categorizer, and Database. Each data flow (F1, F2, etc.) is labeled to illustrate the pathways for user input, TikTok data retrieval, message categorization, and final alerts to the Intelligence Department."
+        "description": "This expanded diagram displays MeldMonitor and its core internal components—Mobile App, API Application, DataDrip, Message Categorizer, and Database. Each data flow (F1, F2, etc.) is labeled to show the pathways for user input, TikTok data retrieval, message categorization, and final alerts to the Intelligence Department."
       }
     ],
     "diagramTop": 4,
