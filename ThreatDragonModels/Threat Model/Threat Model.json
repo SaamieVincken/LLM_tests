@@ -151,7 +151,7 @@
             "data": {
               "type": "tm.Process",
               "name": "MeldMonitor",
-              "description": "System",
+              "description": "The central system for handling law enforcement messages. It pulls direct messages from TikTok, categorizes them based on urgency, and sends serious cases to the Intelligence Department.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -271,7 +271,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "TikTok",
-              "description": "Platform",
+              "description": "An external social media service where people can send messages to the officer’s TikTok business account. MeldMonitor retrieves these messages from TikTok.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -387,7 +387,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "AppUser",
-              "description": "user",
+              "description": "A police officer who uses a TikTok business account. This user logs in through MeldMonitor to view, manage, and potentially forward messages.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -503,7 +503,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Intelligence department",
-              "description": "",
+              "description": "A law enforcement unit that receives urgent or high-risk alerts sent by MeldMonitor. This team investigates and responds to critical cases.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
