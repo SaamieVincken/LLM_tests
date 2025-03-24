@@ -791,7 +791,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Mobile App \n[Ionic/Typescript]",
-              "description": "Ionic/Typescript",
+              "description": "The mobile application used by police officers to log in with their TikTok account. It allows them to view, manage, and interact with incoming direct messages. It sends requests to the API and receives data such as message summaries and categorization results.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -971,7 +971,7 @@
             "data": {
               "type": "tm.Process",
               "name": "API Application\n[ASP.NET Core]",
-              "description": "",
+              "description": "The main back-end service that handles all communication between the mobile app, TikTok data sources, the database, and the categorization service. It processes requests, validates data, and acts as the central controller for system operations.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -1164,7 +1164,7 @@
             "data": {
               "type": "tm.Process",
               "name": "DataDrip\n(TikTok Integration)",
-              "description": "",
+              "description": "A service or wrapper that connects to the TikTok API to retrieve direct messages and account data. It manages authentication tokens and performs authorized calls to TikTok on behalf of the AppUser.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -1370,7 +1370,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Message \nCategorizer\n[Python]",
-              "description": "",
+              "description": "An internal service that uses machine learning to analyze messages retrieved from TikTok. It detects the type, urgency, and potential risk of messages, and sends classification results back to the API for further handling",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -1581,7 +1581,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Database\n[MariaDB]",
-              "description": "",
+              "description": "Stores all structured data for the system, including message records, user metadata, classification results, and system logs. It is accessed only by the API and uses entity framework for data management",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -1747,7 +1747,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "TikTok\n(External)",
-              "description": "",
+              "description": "The public social media platform where members of the public can send direct messages to a police officer’s business account. The system interacts with TikTok only through its official API using valid credentials.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -1894,7 +1894,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "AppUser\n(Police Officer)",
-              "description": "",
+              "description": "The end-user of the mobile app. This person holds a verified TikTok business account and uses MeldMonitor to monitor their inbox, read messages, and escalate important ones.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -2041,7 +2041,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Intelligence\ndepartment\n(External)",
-              "description": "",
+              "description": "The receiving end of any urgent or high-risk tickets that require follow-up. This department uses the information forwarded from MeldMonitor to take official action or open investigations.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -2460,7 +2460,17 @@
               "cell": "fa93b87b-1347-44f4-80b0-9e5b8f080a97",
               "port": "25d6639b-99d9-4de5-bb32-43447ccc38c8"
             },
-            "vertices": []
+            "vertices": [],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
