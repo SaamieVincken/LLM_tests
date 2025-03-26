@@ -406,7 +406,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Intelligence department"
+                "text": "MeldKamer"
               },
               "body": {
                 "stroke": "#333333",
@@ -502,13 +502,20 @@
             "id": "0333952b-6f74-471d-9709-e2ef20edf7de",
             "data": {
               "type": "tm.Actor",
-              "name": "Intelligence department",
+              "name": "MeldKamer",
               "description": "A law enforcement unit that receives urgent or high-risk alerts sent by MeldMonitor. This team investigates and responds to critical cases.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
