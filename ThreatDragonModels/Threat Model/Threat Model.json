@@ -1944,7 +1944,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Intelligence\ndepartment\n(External)"
+                "text": "MeldKamer\n(External)"
               },
               "body": {
                 "stroke": "red",
@@ -2040,7 +2040,7 @@
             "id": "b66f4a93-8986-43cc-999f-144452c32f7f",
             "data": {
               "type": "tm.Actor",
-              "name": "Intelligence\ndepartment\n(External)",
+              "name": "MeldKamer\n(External)",
               "description": "The receiving end of any urgent or high-risk tickets that require follow-up. This department uses the information forwarded from MeldMonitor to take official action or open investigations.",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -2078,6 +2078,13 @@
                 "spoofing": 1,
                 "repudiation": 1
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2460,7 +2467,6 @@
               "cell": "fa93b87b-1347-44f4-80b0-9e5b8f080a97",
               "port": "25d6639b-99d9-4de5-bb32-43447ccc38c8"
             },
-            "vertices": [],
             "tools": {
               "items": [
                 "boundary",
@@ -2470,7 +2476,8 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": []
           },
           {
             "shape": "flow",
