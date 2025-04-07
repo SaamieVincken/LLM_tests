@@ -2857,16 +2857,6 @@
           }
         ],
         "description": "This expanded diagram displays MeldMonitor and its core internal components—Mobile App, API Application, DataDrip, Message Categorizer, and Database. Each data flow (F1, F2, etc.) is labeled to show the pathways for user input, TikTok data retrieval, message categorization, and final alerts to the Intelligence Department."
-      },
-      {
-        "id": 5,
-        "title": "New generic diagram",
-        "diagramType": "Generic",
-        "placeholder": "New generic diagram description",
-        "thumbnail": "./public/content/images/thumbnail.jpg",
-        "version": "2.4.1",
-        "cells": [],
-        "description": "Data flow values"
       }
     ],
     "diagramTop": 6,
