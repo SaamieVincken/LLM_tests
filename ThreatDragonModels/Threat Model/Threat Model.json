@@ -667,7 +667,7 @@
           {
             "position": {
               "x": 5,
-              "y": 175.00000000000006
+              "y": 190
             },
             "size": {
               "width": 850,
@@ -1016,7 +1016,7 @@
                 {
                   "id": "7c158549-9b1f-4bb0-ae9a-b8e61facae89",
                   "title": "I-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Query results returning raw DM or user data could be logged in plain text or remain visible to unauthorized processes.",
@@ -1029,7 +1029,7 @@
                 {
                   "id": "d3a4156e-c0b9-4bb4-ac94-f84188c383ce",
                   "title": "D-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Denial of service",
                   "description": "Flooding the DB with complex queries or large data sets can degrade performance or cause timeouts.",
@@ -1057,8 +1057,8 @@
                 "spoofing": 2,
                 "tampering": 2,
                 "repudiation": 0,
-                "informationDisclosure": 1,
-                "denialOfService": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 1
               }
             }
@@ -1389,7 +1389,7 @@
                 {
                   "id": "9ab71e95-6bfa-4ab6-a18c-023b02ab0f78",
                   "title": "S-F6",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Spoofing",
                   "description": "An unauthorized process claims to be the API, sending requests to the categorizer directly.",
@@ -1402,7 +1402,7 @@
                 {
                   "id": "30e8e728-ca0f-4bcb-a715-7b3eb8c9a472",
                   "title": "T-F6",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "The data about DMs is manipulated, skewing classification results or injecting malicious payloads into the AI.",
@@ -1466,13 +1466,20 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 1,
+                "spoofing": 2,
+                "tampering": 2,
                 "repudiation": 1,
                 "informationDisclosure": 1,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 1
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1614,7 +1621,7 @@
                 {
                   "id": "6659d1c0-2b43-4f30-a1cb-ca19f7fa9a05",
                   "title": "D-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Repudiation",
                   "description": "Flooding the DB with complex queries or large data sets can degrade performance or cause timeouts.",
@@ -1640,7 +1647,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "repudiation": 2,
+                "repudiation": 3,
                 "informationDisclosure": 1,
                 "denialOfService": 0
               }
@@ -2181,8 +2188,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2202,7 +2208,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2211,7 +2217,7 @@
                 {
                   "id": "a5db36ee-2af3-462d-9e49-d25855d8f6d0",
                   "title": "T-F6",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "The data about DMs is manipulated, skewing classification results or injecting malicious payloads into the AI.",
@@ -2224,7 +2230,7 @@
                 {
                   "id": "a8e076a9-09a0-4854-8159-c328f802c3ca",
                   "title": "I-F6",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Raw DM content is passed in plain text to the categorizer or ends up in debug logs.",
@@ -2237,7 +2243,7 @@
                 {
                   "id": "ffa5af05-5136-4b77-b250-deedb804e749",
                   "title": "D-F6",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "TBD",
                   "type": "Denial of service",
                   "description": "Large or fast requests to the ML service overburden the categorizer, causing slowdowns or crashes.",
@@ -2249,9 +2255,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2270,10 +2276,6 @@
               {
                 "x": 260,
                 "y": 450
-              },
-              {
-                "x": 230,
-                "y": 450
               }
             ]
           },
@@ -2281,8 +2283,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2302,7 +2303,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2311,7 +2312,7 @@
                 {
                   "id": "e9f45048-09fd-41fb-95ca-5e17f477e062",
                   "title": "T-F7",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Classification output is modified in transit, potentially causing the API to record incorrect severity or incident data.",
@@ -2324,7 +2325,7 @@
                 {
                   "id": "3b0ba896-b012-4ce3-b24a-65dcd0644d2a",
                   "title": "I-F7",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "The categorizer’s output might include extra data about the messages or user, exposing it in the API logs.",
@@ -2337,7 +2338,7 @@
                 {
                   "id": "47b65524-7c7a-4a2e-aa29-b4dc8fcb6373",
                   "title": "D-F7",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "If the categorizer overloads the API with repeated or malformed responses, the API could crash.",
@@ -2349,9 +2350,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2372,7 +2373,7 @@
                 "y": 510
               },
               {
-                "x": 250,
+                "x": 270,
                 "y": 510
               }
             ]
@@ -2506,7 +2507,7 @@
                 {
                   "id": "9cb4631f-39fa-44c3-9c11-9892a5acc542",
                   "title": "T-F8",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "The forwarded tickets or reports are altered in transit.",
@@ -2532,7 +2533,7 @@
                 {
                   "id": "a4b5f2af-bcf5-40ad-9edf-d9cebbf3d909",
                   "title": "D-F8",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "The API repeatedly overloads the Intelligence Department’s system with excessive or malformed tickets, disrupting normal triage.",
@@ -2544,9 +2545,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 3,
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2752,8 +2753,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2773,7 +2773,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2782,7 +2782,7 @@
                 {
                   "id": "442fa720-e244-4099-8601-9fd45ca36f3d",
                   "title": "T-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Malicious SQL injection or parameter tampering modifies queries from the API to the DB, leading to corrupted data.",
@@ -2795,7 +2795,7 @@
                 {
                   "id": "7846bd3b-147c-4969-8539-d58ace4211c2",
                   "title": "I-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Query results returning raw DM or user data could be logged in plain text or remain visible to unauthorized processes.",
@@ -2808,7 +2808,7 @@
                 {
                   "id": "cd188930-859e-4162-8044-71ce5eafc564",
                   "title": "D-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Denial of service",
                   "description": "Flooding the DB with complex queries or large data sets can degrade performance or cause timeouts.",
@@ -2820,9 +2820,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
               }
             },
             "labels": [
