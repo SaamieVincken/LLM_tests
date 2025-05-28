@@ -688,15 +688,6 @@
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -845,7 +836,7 @@
                 {
                   "id": "0a7b9b67-c58a-4171-9141-35e577146a99",
                   "title": "I-F2",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Sensitive data (like personal details or DM content) is readable if the connection is leaked or logs are stored plain text.",
@@ -873,7 +864,7 @@
                 "spoofing": 1,
                 "tampering": 0,
                 "repudiation": 1,
-                "informationDisclosure": 2,
+                "informationDisclosure": 3,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 1
               }
@@ -999,7 +990,7 @@
                 {
                   "id": "d9514e1b-4153-408b-bdb0-6f843fc6755a",
                   "title": "S-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Spoofing",
                   "description": "The API reuses a shared DB credential that an attacker or insider can steal, posing as the API.",
@@ -1012,7 +1003,7 @@
                 {
                   "id": "cc34a41c-9e3c-4fa1-98be-32d62771c61e",
                   "title": "T-F3",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Malicious SQL injection or parameter tampering modifies queries from the API to the DB, leading to corrupted data.",
@@ -1063,8 +1054,8 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 1,
+                "spoofing": 2,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 1,
                 "denialOfService": 1,
@@ -1086,8 +1077,8 @@
                 "text": "DataDrip\n(TikTok Integration)"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1183,7 +1174,7 @@
               "description": "A service or wrapper that connects to the TikTok API to retrieve direct messages and account data. It manages authentication tokens and performs authorized calls to TikTok on behalf of the AppUser.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -1192,7 +1183,7 @@
                 {
                   "id": "14cb8984-9e9b-4a92-925e-1239a67d7cbc",
                   "title": "S-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "TBD",
                   "type": "Spoofing",
                   "description": "A service mimics the API or spoofs an internal token, calling DataDrip to retrieve unauthorized TikTok data.",
@@ -1205,7 +1196,7 @@
                 {
                   "id": "a9fc3413-d944-49e5-923e-1337cfc02ec4",
                   "title": "T-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "TBD",
                   "type": "Tampering",
                   "description": "The parameters (user IDs or access tokens) sent to DataDrip are altered en route, leading to retrieval of other users’ data.",
@@ -1218,7 +1209,7 @@
                 {
                   "id": "c04aa473-1c9f-4ed0-959f-3c27ffc6f800",
                   "title": "R-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Repudiation",
                   "description": "The API denies sending certain requests to DataDrip if no call logs or transaction IDs exist.",
@@ -1231,7 +1222,7 @@
                 {
                   "id": "708b7048-490f-4a24-945b-938dbf72b0ae",
                   "title": "I-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "TBD",
                   "type": "Information disclosure",
                   "description": "DataDrip logs or processes might store TikTok tokens in plain text, exposing them if logs are compromised.",
@@ -1244,7 +1235,7 @@
                 {
                   "id": "63afe3e7-aa5d-4ed1-9374-75bc79c2bdd0",
                   "title": "D-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Denial of service",
                   "description": "The API repeatedly calls DataDrip with huge or frequent requests, causing it to hit resource limits or crash.",
@@ -1257,7 +1248,7 @@
                 {
                   "id": "5c0f5a05-54a8-4240-8bab-80b32d0b8937",
                   "title": "E-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Elevation of privilege",
                   "description": "DataDrip might allow the API to use privileged scopes that can read or alter more data than intended.",
@@ -1269,12 +1260,12 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 1,
-                "repudiation": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1,
-                "elevationOfPrivilege": 1
+                "spoofing": 2,
+                "tampering": 2,
+                "repudiation": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 2
               }
             }
           },
@@ -1772,7 +1763,7 @@
                 {
                   "id": "01403e30-8535-4134-8cbd-97b0e90b267c",
                   "title": "S-F5",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Spoofing",
                   "description": "A fake or compromised endpoint pretends to be TikTok’s API (DNS hijack), intercepting DataDrip calls.",
@@ -1797,7 +1788,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "repudiation": 1
               }
             }
@@ -2100,8 +2091,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2121,7 +2111,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2130,7 +2120,7 @@
                 {
                   "id": "115f2d23-b34b-435b-b1c3-ffafd926d1ce",
                   "title": "T-F5",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Man-in-the-middle modifies data in transit to or from TikTok if TLS is broken or certificates are invalid.",
@@ -2143,7 +2133,7 @@
                 {
                   "id": "1c09b6aa-1a0c-4851-9ced-baea5ea2687c",
                   "title": "I-F5",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "DataDrip requests overly broad scopes from TikTok, exposing additional user data or profile details.",
@@ -2156,7 +2146,7 @@
                 {
                   "id": "fdf56862-99a4-4e16-aa67-3a9f4a1b4777",
                   "title": "D-F5",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "TikTok rate-limits or blocks DataDrip if it floods the API with excessive requests, halting DM retrieval.",
@@ -2168,9 +2158,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2577,8 +2567,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2598,7 +2587,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2607,7 +2596,7 @@
                 {
                   "id": "eb268655-5601-482b-9ae7-cac137f6a48a",
                   "title": "T-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "The parameters (user IDs or access tokens) sent to DataDrip are altered en route, leading to retrieval of other users’ data.",
@@ -2620,7 +2609,7 @@
                 {
                   "id": "920b84ba-68a5-4329-9829-a7fc81028901",
                   "title": "I-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "DataDrip logs or processes might store TikTok tokens in plain text, exposing them if logs are compromised.",
@@ -2633,7 +2622,7 @@
                 {
                   "id": "070eacff-7891-458c-b868-65ff6183806b",
                   "title": "D-F4",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Denial of service",
                   "description": "The API repeatedly calls DataDrip with huge or frequent requests, causing it to hit resource limits or crash.",
@@ -2645,9 +2634,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2673,8 +2662,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2694,7 +2682,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2703,7 +2691,7 @@
                 {
                   "id": "66cd5680-4935-4110-89f7-a908e8aa8517",
                   "title": "I-F2",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Sensitive data (like personal details or DM content) is readable if the connection is leaked or logs are stored plain text.",
@@ -2716,7 +2704,7 @@
                 {
                   "id": "f40b6e90-62e9-4149-8f33-a23b40660399",
                   "title": "D-F2",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Denial of service",
                   "description": "Bot or malware repeatedly sends massive requests from the app side, overwhelming the API’s capacity.",
@@ -2729,7 +2717,7 @@
                 {
                   "id": "a754b248-839c-4159-b281-dfce7b7c7651",
                   "title": "T-F2",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "The JSON payload en route to the API is altered, inserting malicious parameters or removing crucial fields.",
@@ -2741,9 +2729,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 2,
-                "denialOfService": 2
+                "tampering": 2,
+                "informationDisclosure": 3,
+                "denialOfService": 3
               }
             },
             "labels": [
