@@ -688,6 +688,15 @@
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1923,7 +1932,7 @@
                 {
                   "id": "61fd25f5-1ef8-4a5e-b925-3c4d1b9ddb3c",
                   "title": "R-F1",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Repudiation",
                   "description": "Officer or attacker denies having performed certain actions on the mobile device (“I never tapped that button”)",
@@ -1936,7 +1945,7 @@
               ],
               "threatFrequency": {
                 "spoofing": 3,
-                "repudiation": 1
+                "repudiation": 2
               }
             }
           },
@@ -2085,13 +2094,6 @@
                 "spoofing": 1,
                 "repudiation": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2389,8 +2391,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2410,7 +2411,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -2419,7 +2420,7 @@
                 {
                   "id": "acf0d213-ff2e-43a8-a215-0f830426c2a1",
                   "title": "T-F1",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "Malicious actor intercepts or modifies the user’s requests (e.g. text input) on an insecure network before they reach the mobile app.",
@@ -2432,7 +2433,7 @@
                 {
                   "id": "d7dca8ed-c319-4dc5-b460-e08ff32cc607",
                   "title": "I-F1",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Sensitive data (e.g. session tokens, user info) is exposed if the device or initial app handshake is unencrypted or if logs store raw credentials.",
@@ -2445,7 +2446,7 @@
                 {
                   "id": "9e969a60-58a6-48fd-92bb-f55fffd994d9",
                   "title": "D-F1",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "Repeated malicious requests from a device overload the app, making it unusable.",
@@ -2457,9 +2458,9 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -2474,17 +2475,12 @@
               "cell": "fa93b87b-1347-44f4-80b0-9e5b8f080a97",
               "port": "25d6639b-99d9-4de5-bb32-43447ccc38c8"
             },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 429.75,
+                "y": 100
+              }
+            ]
           },
           {
             "shape": "flow",
